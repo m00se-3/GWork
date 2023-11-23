@@ -41,6 +41,8 @@ namespace Gwk
             void StartClip() override;
             void EndClip() override;
 
+            void SetView(const Gwk::Rect& rect);
+
             void DrawTexturedRect(const Gwk::Texture& texture, Gwk::Rect targetRect, float u1 = 0.0f,
                                   float v1 = 0.0f, float u2 = 1.0f, float v2 = 1.0f) override;
 

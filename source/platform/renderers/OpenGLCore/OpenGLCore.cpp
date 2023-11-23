@@ -511,6 +511,20 @@ void OpenGLCore::EndClip()
     glDisable(GL_SCISSOR_TEST);
 }
 
+void OpenGLCore::SetView(const Gwk::Rect& rect)
+{
+    m_viewRect = rect;
+
+    m_projectionMatrix = glm::ortho(
+        static_cast<float>(m_viewRect.x),
+        static_cast<float>(m_viewRect.x + m_viewRect.w),
+        static_cast<float>(m_viewRect.y),
+        static_cast<float>(m_viewRect.y + m_viewRect.h),
+        -1.0f,
+        1.0f
+    );
+}
+
 void OpenGLCore::DrawTexturedRect(const Gwk::Texture& texture, Gwk::Rect rect,
     float u1, float v1, float u2, float v2)
 {

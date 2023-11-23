@@ -754,8 +754,8 @@ void Base::Layout(Skin::Base* skin)
 
 void Base::RecurseLayout(Skin::Base* skin)
 {
-    if (m_skin)
-        skin = m_skin;
+    if (!m_skin)
+        m_skin = skin;
 
     if (Hidden())
         return;
